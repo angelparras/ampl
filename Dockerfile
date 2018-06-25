@@ -19,6 +19,7 @@ RUN docker-php-ext-install pdo pdo_mysql gettext
 
 RUN apt-get update && apt-get install -y \
 		cron \
+		nano \
 		git \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
