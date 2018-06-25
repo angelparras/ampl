@@ -13,7 +13,7 @@ RUN sed -i -e 's/# es_ES ISO-8859-1/es_ES ISO-8859-1/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales
 
 ################################################################################
-# Mysql + Postgres + libraries
+# Mysql + libraries
 ################################################################################
 RUN docker-php-ext-install pdo pdo_mysql gettext
 
@@ -36,6 +36,8 @@ RUN pecl install mcrypt-1.0.1
 RUN docker-php-ext-enable mcrypt
 
 RUN a2enmod rewrite && a2enmod headers
+
+RUN service cron start
 
 ################################################################################
 # Ports
